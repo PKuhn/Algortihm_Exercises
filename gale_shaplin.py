@@ -1,5 +1,6 @@
 import sys
 
+
 class Person:
     def __init__(self, name, preferences):
         self.name = name
@@ -60,7 +61,7 @@ def gale_shaplin(men, women):
 
             man_to_match.partner = woman.name
             woman.partner = man_to_match.name
-            print('\nAssigned woman {} to man {}'.format(
+            print('\nNewly assigned woman {} to man {}'.format(
                 woman.name, man_to_match.name))
             free_men.remove(man_to_match)
 
@@ -75,13 +76,12 @@ def get_person_with_name(persons, name):
 def print_pairs(men, women):
     matched_men = [man for man in men if not man.is_free()]
     sys.stdout.write('Current pairs are: ')
-
     if not matched_men:
         print('None')
         return
     for pers in matched_men:
         partner = get_person_with_name(women, pers.partner)
-        sys.stdout.write('{{{0} {1}}} '.format(man.name, partner.name))
+        sys.stdout.write('{{{0} {1}}} '.format(pers.name, partner.name))
 
 
 def main():
